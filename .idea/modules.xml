@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/MiniQuiz.iml" filepath="$PROJECT_DIR$/.idea/MiniQuiz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MiniQuiz.iml" filepath="$PROJECT_DIR$/MiniQuiz.iml" />
+      <module fileurl="file://C:\Users\stefa\AndroidStudioProjects\MiniQuiz\.idea\MiniQuiz.iml" filepath="C:\Users\stefa\AndroidStudioProjects\MiniQuiz\.idea\MiniQuiz.iml" />
       <module fileurl="file://C:\Users\studente\AndroidStudioProjects\MiniQuiz\MiniQuiz.iml" filepath="C:\Users\studente\AndroidStudioProjects\MiniQuiz\MiniQuiz.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\Users\studente\AndroidStudioProjects\MiniQuiz\app\app.iml" filepath="C:\Users\studente\AndroidStudioProjects\MiniQuiz\app\app.iml" />
