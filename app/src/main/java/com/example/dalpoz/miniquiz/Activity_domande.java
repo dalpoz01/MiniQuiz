@@ -1,24 +1,23 @@
 package com.example.dalpoz.miniquiz;
 
-import android.graphics.drawable.Icon;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class Activity_domande extends AppCompatActivity {
     Button indietro,avanti;
     ImageButton vero,falso;
     TextView nomeGiocatore,punteggio,domanda;
 
-    private Domande domande=new Domande();
-    private String Risposta,Risposta_giusta;
+    private Classe_Domande domande=new Classe_Domande();
+    private Classe_Domande_Fatte domandesvolte=new Classe_Domande_Fatte();
+    private String Risposta,Risposta_giusta,Domandafatta;
     private int Punteggio=0;
     private int numero_domande=domande.Domande.length;
     private int domande_eseguite=0;
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_domande);
         r=new Random();
         indietro=(Button) findViewById(R.id.button_Indietro);
         avanti=(Button)findViewById(R.id.button_Avanti);
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         punteggio=(TextView) findViewById(R.id.textView_Punteggio);
         domanda=(TextView) findViewById(R.id.textView_domanda);
         aggiornaDomanda(r.nextInt(numero_domande));
-
+        indietro.setEnabled(false);
         indietro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,7 +77,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void aggiornaDomanda(int num){
-        domanda.setText(domande.getDomanda(num));
+        Domandafatta=""+domande.getDomanda(num);
+        domanda.setText(Domandafatta);
+        domande_eseguite++;
+        domandesvolte.aggiungidomanda(Domandafatta);
         Risposta_giusta = ""+domande.getRisposta(num);
     }
 }

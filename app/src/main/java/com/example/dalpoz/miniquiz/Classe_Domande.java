@@ -1,6 +1,6 @@
 package com.example.dalpoz.miniquiz;
 
-public class Domande {
+public class Classe_Domande {
     public String Domande[]={
         "Il Sole gira intorno alla Terra",
         "Jury Chechi è un noto politico italiano",
