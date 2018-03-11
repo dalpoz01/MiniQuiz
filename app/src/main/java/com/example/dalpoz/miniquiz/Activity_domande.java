@@ -14,13 +14,14 @@ public class Activity_domande extends AppCompatActivity {
     Button indietro,avanti;
     ImageButton vero,falso;
     TextView nomeGiocatore,punteggio,domanda;
-
+    boolean controllo=false;
     private Classe_Domande domande=new Classe_Domande();
     private Classe_Domande_Fatte domandesvolte=new Classe_Domande_Fatte();
     private String Risposta,Risposta_giusta,Domandafatta;
     private int Punteggio=0;
     private int numero_domande=domande.Domande.length;
     private int domande_eseguite=0;
+
 
     Random r;
     @Override
@@ -48,6 +49,7 @@ public class Activity_domande extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 aggiornaDomanda(r.nextInt(numero_domande));
+                indietro.setEnabled(true);
             }
         });
 
@@ -77,10 +79,22 @@ public class Activity_domande extends AppCompatActivity {
 
     }
     private void aggiornaDomanda(int num){
+        int j=0;
         Domandafatta=""+domande.getDomanda(num);
+        while(j<domande_eseguite){
+            controllo=domandesvolte.controllodomande(Domandafatta);
+            if(controllo==true){
+                num=r.nextInt(numero_domande);
+                Domandafatta=""+domande.getDomanda(num);
+            }
+            j++;
+        }
         domanda.setText(Domandafatta);
         domande_eseguite++;
         domandesvolte.aggiungidomanda(Domandafatta);
         Risposta_giusta = ""+domande.getRisposta(num);
+    }
+    private void ripristina_domanda(int num){
+
     }
 }
