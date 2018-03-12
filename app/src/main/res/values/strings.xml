@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">QuizSuper</string>
+    <string-array name="Materie">
+        <item>Ginnastica</item>
+        <item>Scienze</item>
+        <item>Politica</item>
+        <item>Cultura generale</item>
+        <item>Cucina</item>
+    </string-array>
 </resources>

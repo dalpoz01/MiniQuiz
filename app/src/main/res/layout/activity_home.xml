@@ -57,7 +57,6 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_Inseriscidati" />
 
@@ -81,6 +80,9 @@
         android:layout_height="50dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="16dp"
+        android:entries="@array/Materie"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_InserisciMateria" />
+
 </android.support.constraint.ConstraintLayout>

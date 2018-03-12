@@ -3,6 +3,7 @@ package com.example.dalpoz.miniquiz;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -14,6 +15,7 @@ public class Activity_domande extends AppCompatActivity {
     Button indietro,avanti;
     ImageButton vero,falso;
     TextView nomeGiocatore,punteggio,domanda;
+    String giocatore;
     boolean controllo=false;
     private Classe_Domande domande=new Classe_Domande();
     private Classe_Domande_Fatte domandesvolte=new Classe_Domande_Fatte();
@@ -38,6 +40,9 @@ public class Activity_domande extends AppCompatActivity {
         domanda=(TextView) findViewById(R.id.textView_domanda);
         aggiornaDomanda(r.nextInt(numero_domande));
         indietro.setEnabled(false);
+
+        /*Bundle b = getIntent().getExtras();
+        giocatore=b.getString("Giocatore1");*/
         indietro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,5 +101,12 @@ public class Activity_domande extends AppCompatActivity {
     }
     private void ripristina_domanda(int num){
 
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
