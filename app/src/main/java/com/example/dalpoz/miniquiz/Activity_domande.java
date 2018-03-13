@@ -1,5 +1,6 @@
 package com.example.dalpoz.miniquiz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -66,6 +67,10 @@ public class Activity_domande extends AppCompatActivity {
                     punteggio.setText("Punti: "+Punteggio);
                     aggiornaDomanda(r.nextInt(numero_domande));
                     Log.d("Pulsante","Schiacciato Vero");
+                }else{
+                    Intent i = new Intent(Activity_domande.this, Activity_classifica.class);
+                    //Optional parameters
+                    Activity_domande.this.startActivity(i);
                 }
             }
         });

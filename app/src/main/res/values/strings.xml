@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">QuizSuper</string>
+    <string name="textview">TextView</string>
+    <string name="prova">prova</string>
     <string-array name="Materie">
         <item>Ginnastica</item>
         <item>Scienze</item>
