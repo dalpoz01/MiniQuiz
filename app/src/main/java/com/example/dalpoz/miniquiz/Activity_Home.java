@@ -24,10 +24,13 @@ public class Activity_Home extends AppCompatActivity {
         Inizia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*materia=""+sp.getSelectedItem();
-                nomegiocatore=""+giocatore;*/
+                    materia=""+sp.getSelectedItem();
+                    nomegiocatore=""+giocatore.getText();
+                    Log.d("Nome giocatore:",""+nomegiocatore);
+                    Log.d("Materia Home",""+materia);
                     Intent myIntent = new Intent(Activity_Home.this, Activity_domande.class);
-                    myIntent.putExtra("key", 1); //Optional parameters
+                    myIntent.putExtra("Giocatore", ""+nomegiocatore); //Optional parameters
+                    myIntent.putExtra("Materia", ""+materia);
                     Activity_Home.this.startActivity(myIntent);
             }
         });

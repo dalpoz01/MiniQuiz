@@ -16,7 +16,7 @@ public class Activity_domande extends AppCompatActivity {
     Button indietro,avanti;
     ImageButton vero,falso;
     TextView nomeGiocatore,punteggio,domanda;
-    String giocatore;
+    String giocatore,materia;
     boolean controllo=false;
     private Classe_Domande domande=new Classe_Domande();
     private Classe_Domande_Fatte domandesvolte=new Classe_Domande_Fatte();
@@ -42,8 +42,11 @@ public class Activity_domande extends AppCompatActivity {
         aggiornaDomanda(r.nextInt(numero_domande));
         indietro.setEnabled(false);
 
-        /*Bundle b = getIntent().getExtras();
-        giocatore=b.getString("Giocatore1");*/
+        Bundle b = getIntent().getExtras();
+        giocatore=b.getString("Giocatore");
+        nomeGiocatore.setText(""+giocatore);
+        materia=b.getString("Materia");
+        Log.d("Materia_Activity_domand",""+materia);
         indietro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +72,8 @@ public class Activity_domande extends AppCompatActivity {
                     Log.d("Pulsante","Schiacciato Vero");
                 }else{
                     Intent i = new Intent(Activity_domande.this, Activity_classifica.class);
-                    //Optional parameters
+                    i.putExtra("Giocatore",""+giocatore);//Optional parameters
+                    i.putExtra("Punteggio",""+Punteggio);
                     Activity_domande.this.startActivity(i);
                 }
             }
