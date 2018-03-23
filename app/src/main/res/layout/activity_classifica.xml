@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/alfa_slab_one"
         android:gravity="center"
-        android:text="RISULTATO"
+        android:text="@string/risultato"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="24sp"
         android:textStyle="bold|italic"
@@ -48,7 +48,7 @@
         android:layout_marginStart="16dp"
         android:background="@android:color/holo_red_light"
         android:fontFamily="@font/black_ops_one"
-        android:text="Esci"
+        android:text="@string/esci"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -60,7 +60,7 @@
         android:layout_marginEnd="16dp"
         android:background="@android:color/holo_green_light"
         android:fontFamily="@font/black_ops_one"
-        android:text="Nuova partita"
+        android:text="@string/nuova_partita"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -13,7 +13,7 @@
         android:layout_marginBottom="200dp"
         android:layout_marginEnd="52dp"
         android:fontFamily="@font/black_ops_one"
-        android:text="SALTA"
+        android:text="@string/salta"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -27,28 +27,28 @@
         android:background="@drawable/ic_launcher_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/falso" />
+        app:srcCompat="@drawable/falso" android:contentDescription="@string/todo" />
 
     <ImageButton
         android:id="@+id/imageButton_Vero"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:layout_marginBottom="48dp"
-        android:layout_marginStart="392dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/ic_launcher_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/tick" />
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_Falso"
+        app:srcCompat="@drawable/tick" android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textView_NomeGiocatore"
-        android:layout_width="174dp"
+        android:layout_width="wrap_content"
         android:layout_height="27dp"
         android:layout_marginEnd="23dp"
         android:layout_marginStart="7dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="NomeGiocatore"
+        android:text="@string/nomegiocatore"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintEnd_toStartOf="@+id/textView_Punteggio"
         app:layout_constraintHorizontal_bias="0.0"
@@ -62,7 +62,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="60dp"
         android:gravity="center"
-        android:text="Domanda"
+        android:text="@string/domanda"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,12 +70,12 @@
 
     <TextView
         android:id="@+id/textView_Punteggio"
-        android:layout_width="171dp"
+        android:layout_width="wrap_content"
         android:layout_height="27dp"
         android:layout_marginEnd="9dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="Punteggio"
+        android:text="@string/punteggio"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -84,15 +84,15 @@
         android:id="@+id/textView_vero"
         android:layout_width="92dp"
         android:layout_height="23dp"
-        android:layout_marginStart="392dp"
+        android:layout_marginEnd="12dp"
         android:fontFamily="@font/black_ops_one"
         android:gravity="center"
-        android:text="Vero"
+        android:text="@string/vero"
         android:textColor="@android:color/holo_green_light"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageButton_Vero"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/textView_falso" />
 
     <TextView
         android:id="@+id/textView_falso"
@@ -101,7 +101,7 @@
         android:layout_marginEnd="4dp"
         android:fontFamily="@font/black_ops_one"
         android:gravity="top|center_horizontal|center"
-        android:text="Falso"
+        android:text="@string/falso"
         android:textColor="@android:color/holo_red_light"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -110,15 +110,15 @@
 
     <TextView
         android:id="@+id/num_dom"
-        android:layout_width="5dp"
+        android:layout_width="wrap_content"
         android:layout_height="27dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="492dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/black_ops_one"
         android:gravity="center"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/textView_NomeGiocatore"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

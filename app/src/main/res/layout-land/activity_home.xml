@@ -26,7 +26,7 @@
         android:layout_height="77dp"
         android:layout_marginEnd="9dp"
         android:layout_marginStart="9dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/black_ops_one"
         android:gravity="center"
         android:text="Benvenuto in QuizSuper"
@@ -34,7 +34,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,7 +67,7 @@
         android:id="@+id/textView_InserisciMateria"
         android:layout_width="0dp"
         android:layout_height="44dp"
-        android:layout_marginStart="56dp"
+        android:layout_marginEnd="44dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/black_ops_one"
         android:gravity="center"
@@ -75,20 +75,20 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView_Inseriscidati"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_benvenuto" />
 
     <Spinner
         android:id="@+id/spinner_materia"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginStart="84dp"
+        android:layout_marginEnd="72dp"
         android:layout_marginTop="12dp"
         android:background="@android:color/transparent"
         android:entries="@array/Materie"
         android:gravity="center"
         android:textAlignment="center"
-        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_InserisciMateria" />
 
 </android.support.constraint.ConstraintLayout>

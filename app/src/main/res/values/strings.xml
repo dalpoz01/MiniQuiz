@@ -7,6 +7,19 @@
     <string name="politica">Politica</string>
     <string name="culturagen">Cultura generale</string>
     <string name="cucina">Cucina</string>
+    <string name="falso">Falso</string>
+    <string name="vero">Vero</string>
+    <string name="punteggio">Punteggio</string>
+    <string name="domanda">Domanda</string>
+    <string name="nomegiocatore">NomeGiocatore</string>
+    <string name="salta">SALTA</string>
+    <string name="risultato">RISULTATO</string>
+    <string name="nuova_partita">Nuova partita</string>
+    <string name="esci">Esci</string>
+    <string name="inizia">Inizia</string>
+    <string name="benvenuto_in_quizsuper">Benvenuto in QuizSuper</string>
+    <string name="scegli_la_materia">Scegli la materia</string>
+    <string name="inserisci_il_nome_giocatore">Inserisci il nome giocatore</string>
     <string-array name="Materie">
         <item>@string/ginnastica</item>
         <item>@string/scienze</item>

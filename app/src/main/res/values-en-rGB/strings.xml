@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">QuizSuper</string>
+    <string name="salta">Next</string>
+    <string name="risultato">Resulte</string>
+    <string name="nuova_partita">New game</string>
+    <string name="esci">Exit</string>
+    <string name="inizia">Start</string>
+    <string name="benvenuto_in_quizsuper">Welcome to QuizSuper</string>
+    <string name="scegli_la_materia">"Choose the "</string>
+    <string name="domanda">Answer</string>
+    <string name="punteggio">Points</string>
+    <string name="vero">True</string>
+    <string name="falso">False</string>
+    <string name="inserisci_il_nome_giocatore">Insert the player name</string>
+    <string name="nomegiocatore">Player name</string>
+    <string name="prova">test</string>
+    <string name="scienze">Science</string>
+    <string name="ginnastica">Gym</string>
+    <string name="politica">Policy</string>
+    <string name="culturagen">General culture</string>
+    <string name="cucina">Kitchen</string>
 </resources>
