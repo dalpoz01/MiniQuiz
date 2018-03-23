@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -37,7 +38,9 @@ public class Activity_classifica extends AppCompatActivity {
         giocatore=""+b.getString("Giocatore");
         punteggio=""+b.getString("Punteggio");
         TextView p=new TextView(this);
-        p.setText(""+giocatore+" Punti:"+punteggio);
+        p.setGravity(9);
+        p.setTextSize(24);
+        p.setText(""+giocatore+" - Punti:"+punteggio);
         ly.addView(p);
         esci.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,23 +55,6 @@ public class Activity_classifica extends AppCompatActivity {
                 Activity_classifica.this.startActivity(i);
             }
         });
-
-        /*builder.setMessage("Vuoi uscire?")
-                .setTitle("Conferma uscita")
-                .setPositiveButton("SI", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // CONFIRM
-                        finishAffinity();
-                        System.exit(0);
-                    }
-                })
-                .setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // CANCEL
-                    }
-                });
-        // Create the AlertDialog object and return it
-        builder.create();*/
     }
     private void showDialog() throws Resources.NotFoundException{
         new AlertDialog.Builder(this)
@@ -92,5 +78,12 @@ public class Activity_classifica extends AppCompatActivity {
                                 //Do Something Here
                             }
                         }).show();
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

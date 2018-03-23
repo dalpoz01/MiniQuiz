@@ -2,11 +2,16 @@
     <string name="app_name">QuizSuper</string>
     <string name="textview">TextView</string>
     <string name="prova">prova</string>
+    <string name="ginnastica">Ginnastica</string>
+    <string name="scienze">Scienze</string>
+    <string name="politica">Politica</string>
+    <string name="culturagen">Cultura generale</string>
+    <string name="cucina">Cucina</string>
     <string-array name="Materie">
-        <item>Ginnastica</item>
-        <item>Scienze</item>
-        <item>Politica</item>
-        <item>Cultura generale</item>
-        <item>Cucina</item>
+        <item>@string/ginnastica</item>
+        <item>@string/scienze</item>
+        <item>@string/politica</item>
+        <item>@string/culturagen</item>
+        <item>@string/cucina</item>
     </string-array>
 </resources>

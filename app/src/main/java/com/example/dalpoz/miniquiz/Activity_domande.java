@@ -10,21 +10,22 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Activity_domande extends AppCompatActivity {
-    Button indietro,avanti;
+    Button avanti;
     ImageButton vero,falso;
-    TextView nomeGiocatore,punteggio,domanda;
-    String giocatore,materia;
+    TextView nomeGiocatore,punteggio,domanda,numdom;
+    String giocatore;
     boolean controllo=false;
     private Classe_Domande domande=new Classe_Domande();
     private Classe_Domande_Fatte domandesvolte=new Classe_Domande_Fatte();
-    private String Risposta,Risposta_giusta,Domandafatta;
+    private String Risposta_giusta,Domandafatta,materia;
     private int Punteggio=0;
     private int numero_domande=domande.Domande.length;
     private int domande_eseguite=0;
-
+    ArrayList num_domande=new ArrayList();
 
     Random r;
     @Override
@@ -32,33 +33,30 @@ public class Activity_domande extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_domande);
         r=new Random();
-        indietro=(Button) findViewById(R.id.button_Indietro);
         avanti=(Button)findViewById(R.id.button_Avanti);
         vero=(ImageButton) findViewById(R.id.imageButton_Vero);
         falso=(ImageButton) findViewById(R.id.imageButton_Falso);
         nomeGiocatore=(TextView) findViewById(R.id.textView_NomeGiocatore);
         punteggio=(TextView) findViewById(R.id.textView_Punteggio);
         domanda=(TextView) findViewById(R.id.textView_domanda);
-        aggiornaDomanda(r.nextInt(numero_domande));
-        indietro.setEnabled(false);
-
+        numdom=findViewById(R.id.num_dom);
         Bundle b = getIntent().getExtras();
         giocatore=b.getString("Giocatore");
         nomeGiocatore.setText(""+giocatore);
         materia=b.getString("Materia");
         Log.d("Materia_Activity_domand",""+materia);
-        indietro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                aggiornaDomanda(r.nextInt(numero_domande));
-            }
-        });
-
+        aggiornaDomanda(r.nextInt(numero_domande));
         avanti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                aggiornaDomanda(r.nextInt(numero_domande));
-                indietro.setEnabled(true);
+                if(domande_eseguite==6){
+                    Intent i = new Intent(Activity_domande.this, Activity_classifica.class);
+                    i.putExtra("Giocatore",""+giocatore);//Optional parameters
+                    i.putExtra("Punteggio",""+Punteggio);
+                    Activity_domande.this.startActivity(i);
+                }else{
+                    aggiornaDomanda(r.nextInt(numero_domande));
+                }
             }
         });
 
@@ -68,13 +66,24 @@ public class Activity_domande extends AppCompatActivity {
                 if(Risposta_giusta.equals("Vero")){
                     Punteggio++;
                     punteggio.setText("Punti: "+Punteggio);
-                    aggiornaDomanda(r.nextInt(numero_domande));
                     Log.d("Pulsante","Schiacciato Vero");
+                    if(domande_eseguite==6){
+                        Intent i = new Intent(Activity_domande.this, Activity_classifica.class);
+                        i.putExtra("Giocatore",""+giocatore);//Optional parameters
+                        i.putExtra("Punteggio",""+Punteggio);
+                        Activity_domande.this.startActivity(i);
+                    }else{
+                        aggiornaDomanda(r.nextInt(numero_domande));
+                    }
                 }else{
-                    Intent i = new Intent(Activity_domande.this, Activity_classifica.class);
-                    i.putExtra("Giocatore",""+giocatore);//Optional parameters
-                    i.putExtra("Punteggio",""+Punteggio);
-                    Activity_domande.this.startActivity(i);
+                    if(domande_eseguite==6){
+                        Intent i = new Intent(Activity_domande.this, Activity_classifica.class);
+                        i.putExtra("Giocatore",""+giocatore);//Optional parameters
+                        i.putExtra("Punteggio",""+Punteggio);
+                        Activity_domande.this.startActivity(i);
+                    }else{
+                        aggiornaDomanda(r.nextInt(numero_domande));
+                    }
                 }
             }
         });
@@ -85,31 +94,61 @@ public class Activity_domande extends AppCompatActivity {
                 if(Risposta_giusta.equals("Falso")){
                     Punteggio++;
                     punteggio.setText("Punti: "+Punteggio);
-                    aggiornaDomanda(r.nextInt(numero_domande));
+                    if(domande_eseguite==6){
+                        Intent i = new Intent(Activity_domande.this, Activity_classifica.class);
+                        i.putExtra("Giocatore",""+giocatore);//Optional parameters
+                        i.putExtra("Punteggio",""+Punteggio);
+                        Activity_domande.this.startActivity(i);
+                    }else{
+                        aggiornaDomanda(r.nextInt(numero_domande));
+                    }
                     Log.d("Pulsante","Schiacciato Falso");
+                }else{
+                    if(domande_eseguite==6){
+                        Intent i = new Intent(Activity_domande.this, Activity_classifica.class);
+                        i.putExtra("Giocatore",""+giocatore);//Optional parameters
+                        i.putExtra("Punteggio",""+Punteggio);
+                        Activity_domande.this.startActivity(i);
+                    }else{
+                        aggiornaDomanda(r.nextInt(numero_domande));
+                    }
                 }
             }
         });
 
     }
-    private void aggiornaDomanda(int num){
-        int j=0;
-        Domandafatta=""+domande.getDomanda(num);
-        while(j<domande_eseguite){
-            controllo=domandesvolte.controllodomande(Domandafatta);
-            if(controllo==true){
-                num=r.nextInt(numero_domande);
-                Domandafatta=""+domande.getDomanda(num);
+    private boolean controllo(int num){
+        boolean controlla=false;
+        String prova,numero=""+num;
+        for(int i=0;i<num_domande.size();i++){
+            prova=""+num_domande.get(i);
+            System.out.println(""+prova);
+            if(prova.equals(numero)){
+                controlla=true;
             }
-            j++;
         }
-        domanda.setText(Domandafatta);
-        domande_eseguite++;
-        domandesvolte.aggiungidomanda(Domandafatta);
-        Risposta_giusta = ""+domande.getRisposta(num);
+        return controlla;
     }
-    private void ripristina_domanda(int num){
-
+    private void aggiornaDomanda(int num){
+        boolean controlla=true;
+        if(domande_eseguite==0){
+            Domandafatta=""+domande.getDomanda(num);
+            domanda.setText(Domandafatta);
+            domande_eseguite++;
+            Risposta_giusta = ""+domande.getRisposta(num);
+            numdom.setText(""+domande_eseguite);
+        }else{
+            controlla=controllo(num);
+            while(controlla==true){
+                num=r.nextInt(numero_domande);
+                controlla=controllo(num);
+            }
+            Domandafatta=""+domande.getDomanda(num);
+            domanda.setText(Domandafatta);
+            domande_eseguite++;
+            numdom.setText(""+domande_eseguite);
+            Risposta_giusta = ""+domande.getRisposta(num);
+        }
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
