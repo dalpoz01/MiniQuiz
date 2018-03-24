@@ -27,7 +27,7 @@
         android:background="@drawable/ic_launcher_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/falso" android:contentDescription="@string/todo" />
+        app:srcCompat="@drawable/falso"/>
 
     <ImageButton
         android:id="@+id/imageButton_Vero"
@@ -38,7 +38,7 @@
         android:background="@drawable/ic_launcher_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageButton_Falso"
-        app:srcCompat="@drawable/tick" android:contentDescription="@string/todo" />
+        app:srcCompat="@drawable/tick"/>
 
     <TextView
         android:id="@+id/textView_NomeGiocatore"
