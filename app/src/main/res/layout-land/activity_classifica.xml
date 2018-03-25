@@ -8,27 +8,29 @@
 
     <TextView
         android:id="@+id/textView_classifica"
-        android:layout_width="wrap_content"
-        android:layout_height="62dp"
-        android:layout_marginStart="256dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/alfa_slab_one"
         android:gravity="center"
-        android:text="RISULTATO"
+        android:text="@string/risultato"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="24sp"
         android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/button_NuovaPartita"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="390dp"
-        android:layout_height="219dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="410dp"
+        android:layout_height="201dp"
+        android:layout_marginTop="4dp"
         android:clipToPadding="false"
         android:fillViewport="true"
+        app:layout_constraintEnd_toStartOf="@+id/button_Esci"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_classifica">
 
@@ -44,10 +46,10 @@
         android:layout_width="161dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="16dp"
         android:background="@android:color/holo_red_light"
         android:fontFamily="@font/black_ops_one"
-        android:text="Esci"
+        android:text="@string/esci"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -55,11 +57,13 @@
         android:id="@+id/button_NuovaPartita"
         android:layout_width="161dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="176dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="168dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="@android:color/holo_green_light"
         android:fontFamily="@font/black_ops_one"
-        android:text="Nuova partita"
+        android:text="@string/nuova_partita"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>

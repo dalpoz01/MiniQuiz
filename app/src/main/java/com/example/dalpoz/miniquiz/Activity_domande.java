@@ -18,14 +18,13 @@ public class Activity_domande extends AppCompatActivity {
     ImageButton vero,falso;
     TextView nomeGiocatore,punteggio,domanda,numdom;
     String giocatore;
-    boolean controllo=false;
     private Classe_Domande domande=new Classe_Domande();
-    private Classe_Domande_Fatte domandesvolte=new Classe_Domande_Fatte();
     private String Risposta_giusta,Domandafatta,materia;
     private int Punteggio=0;
     private int numero_domande=domande.Domande.length;
     private int domande_eseguite=0;
-    ArrayList num_domande=new ArrayList();
+    //ArrayList num_domande=new ArrayList();
+    private int num_domande[]= new int[11];
 
     Random r;
     @Override
@@ -33,12 +32,12 @@ public class Activity_domande extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_domande);
         r=new Random();
-        avanti=(Button)findViewById(R.id.button_Avanti);
-        vero=(ImageButton) findViewById(R.id.imageButton_Vero);
-        falso=(ImageButton) findViewById(R.id.imageButton_Falso);
-        nomeGiocatore=(TextView) findViewById(R.id.textView_NomeGiocatore);
-        punteggio=(TextView) findViewById(R.id.textView_Punteggio);
-        domanda=(TextView) findViewById(R.id.textView_domanda);
+        avanti=findViewById(R.id.button_Avanti);
+        vero=findViewById(R.id.imageButton_Vero);
+        falso= findViewById(R.id.imageButton_Falso);
+        nomeGiocatore= findViewById(R.id.textView_NomeGiocatore);
+        punteggio= findViewById(R.id.textView_Punteggio);
+        domanda= findViewById(R.id.textView_domanda);
         numdom=findViewById(R.id.num_dom);
         Bundle b = getIntent().getExtras();
         giocatore=b.getString("Giocatore");
@@ -49,7 +48,7 @@ public class Activity_domande extends AppCompatActivity {
         avanti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(domande_eseguite==6){
+                if(domande_eseguite==10){
                     Intent i = new Intent(Activity_domande.this, Activity_classifica.class);
                     i.putExtra("Giocatore",""+giocatore);//Optional parameters
                     i.putExtra("Punteggio",""+Punteggio);
@@ -65,9 +64,9 @@ public class Activity_domande extends AppCompatActivity {
             public void onClick(View view) {
                 if(Risposta_giusta.equals("Vero")){
                     Punteggio++;
-                    punteggio.setText("Punti: "+Punteggio);
+                    punteggio.setText(getString(R.string.punti)+Punteggio);
                     Log.d("Pulsante","Schiacciato Vero");
-                    if(domande_eseguite==6){
+                    if(domande_eseguite==10){
                         Intent i = new Intent(Activity_domande.this, Activity_classifica.class);
                         i.putExtra("Giocatore",""+giocatore);//Optional parameters
                         i.putExtra("Punteggio",""+Punteggio);
@@ -76,7 +75,7 @@ public class Activity_domande extends AppCompatActivity {
                         aggiornaDomanda(r.nextInt(numero_domande));
                     }
                 }else{
-                    if(domande_eseguite==6){
+                    if(domande_eseguite==10){
                         Intent i = new Intent(Activity_domande.this, Activity_classifica.class);
                         i.putExtra("Giocatore",""+giocatore);//Optional parameters
                         i.putExtra("Punteggio",""+Punteggio);
@@ -93,8 +92,8 @@ public class Activity_domande extends AppCompatActivity {
             public void onClick(View view) {
                 if(Risposta_giusta.equals("Falso")){
                     Punteggio++;
-                    punteggio.setText("Punti: "+Punteggio);
-                    if(domande_eseguite==6){
+                    punteggio.setText(getString(R.string.punti)+Punteggio);
+                    if(domande_eseguite==10){
                         Intent i = new Intent(Activity_domande.this, Activity_classifica.class);
                         i.putExtra("Giocatore",""+giocatore);//Optional parameters
                         i.putExtra("Punteggio",""+Punteggio);
@@ -104,7 +103,7 @@ public class Activity_domande extends AppCompatActivity {
                     }
                     Log.d("Pulsante","Schiacciato Falso");
                 }else{
-                    if(domande_eseguite==6){
+                    if(domande_eseguite==10){
                         Intent i = new Intent(Activity_domande.this, Activity_classifica.class);
                         i.putExtra("Giocatore",""+giocatore);//Optional parameters
                         i.putExtra("Punteggio",""+Punteggio);
@@ -119,25 +118,32 @@ public class Activity_domande extends AppCompatActivity {
     }
     private boolean controllo(int num){
         boolean controlla=false;
-        String prova,numero=""+num;
-        for(int i=0;i<num_domande.size();i++){
-            prova=""+num_domande.get(i);
-            System.out.println(""+prova);
-            if(prova.equals(numero)){
+        int i,n;
+        Log.d("Ciclo controllo","ciclo controllo");
+        for(i=0;i<num_domande.length;i++){
+            n=num_domande[i];
+            Log.d("Ciclo controllo","n="+n);
+            if(n==num){
                 controlla=true;
+                Log.d("Ciclo controllo","controlla=true");
             }
         }
         return controlla;
     }
     private void aggiornaDomanda(int num){
-        boolean controlla=true;
+        boolean controlla;
+        Log.d("Aggiorna domanda","num="+num);
         if(domande_eseguite==0){
+            Log.d("Aggiorna domanda","domande_eseguite=0");
             Domandafatta=""+domande.getDomanda(num);
             domanda.setText(Domandafatta);
-            domande_eseguite++;
+            num_domande[domande_eseguite]=num;
             Risposta_giusta = ""+domande.getRisposta(num);
+            Log.d("Risposta giusta:",""+Risposta_giusta);
+            domande_eseguite++;
             numdom.setText(""+domande_eseguite);
         }else{
+            Log.d("Aggiorna domanda","domande_eseguite-->"+domande_eseguite);
             controlla=controllo(num);
             while(controlla==true){
                 num=r.nextInt(numero_domande);
@@ -145,9 +151,11 @@ public class Activity_domande extends AppCompatActivity {
             }
             Domandafatta=""+domande.getDomanda(num);
             domanda.setText(Domandafatta);
+            num_domande[domande_eseguite]=num;
+            Risposta_giusta = ""+domande.getRisposta(num);
+            Log.d("Risposta giusta:",""+Risposta_giusta);
             domande_eseguite++;
             numdom.setText(""+domande_eseguite);
-            Risposta_giusta = ""+domande.getRisposta(num);
         }
     }
     @Override

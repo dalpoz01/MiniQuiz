@@ -5,28 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_orange_light"
-    tools:context="com.example.dalpoz.miniquiz.Activity_Home">
+    tools:context="com.example.dalpoz.miniquiz.Activity_Home"
+    tools:layout_editor_absoluteY="81dp">
 
     <Button
         android:id="@+id/button_Inizia"
         android:layout_width="104dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="32dp"
         android:elegantTextHeight="false"
         android:elevation="0dp"
         android:fontFamily="@font/black_ops_one"
         android:text="@string/inizia"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_materia" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <TextView
         android:id="@+id/textView_benvenuto"
-        android:layout_width="366dp"
+        android:layout_width="325dp"
         android:layout_height="85dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/black_ops_one"
         android:gravity="center"
         android:text="@string/benvenuto_in_quizsuper"
@@ -34,61 +33,113 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView_Inseriscidati"
-        android:layout_width="292dp"
+        android:layout_width="0dp"
         android:layout_height="44dp"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/black_ops_one"
         android:gravity="center"
         android:text="@string/inserisci_il_nome_giocatore"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_benvenuto" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton_inf" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="292dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginBottom="232dp"
+        android:layout_marginTop="26dp"
         android:ems="10"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Inseriscidati" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_Inseriscidati"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView_InserisciMateria"
         android:layout_width="295dp"
         android:layout_height="39dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/black_ops_one"
         android:gravity="center"
         android:text="@string/scegli_la_materia"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        android:visibility="invisible"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="446dp" />
 
     <Spinner
         android:id="@+id/spinner_materia"
         android:layout_width="293dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="60dp"
         android:background="@android:color/transparent"
         android:entries="@array/Materie"
         android:gravity="center"
         android:textAlignment="center"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="386dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <TextView
+        android:id="@+id/Regole"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/per_reg"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_inf"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_InserisciMateria" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_benvenuto" />
+
+    <ImageButton
+        android:id="@+id/imageButton_inf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="84dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_green_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_benvenuto"
+        app:srcCompat="@android:drawable/ic_menu_info_details" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 </android.support.constraint.ConstraintLayout>

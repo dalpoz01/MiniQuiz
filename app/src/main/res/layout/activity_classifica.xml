@@ -8,36 +8,35 @@
 
     <TextView
         android:id="@+id/textView_classifica"
-        android:layout_width="370dp"
+        android:layout_width="0dp"
         android:layout_height="62dp"
-        android:layout_marginStart="7dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/alfa_slab_one"
+        android:fontFamily="@font/black_ops_one"
         android:gravity="center"
         android:text="@string/risultato"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="24sp"
         android:textStyle="bold|italic"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="368dp"
-        android:layout_height="342dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="355dp"
+        android:layout_height="338dp"
         android:layout_marginTop="8dp"
         android:clipToPadding="false"
         android:fillViewport="true"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_classifica">
 
         <LinearLayout
             android:id="@+id/linear"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-        </LinearLayout>
+            android:orientation="vertical"></LinearLayout>
     </ScrollView>
 
     <Button

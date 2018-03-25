@@ -10,7 +10,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class Activity_classifica extends AppCompatActivity {
@@ -23,7 +22,6 @@ public class Activity_classifica extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classifica);
-        ScrollView sv=findViewById(R.id.scrollView2);
         LinearLayout ly=findViewById(R.id.linear);
         esci=findViewById(R.id.button_Esci);
         partita=findViewById(R.id.button_NuovaPartita);
@@ -40,7 +38,7 @@ public class Activity_classifica extends AppCompatActivity {
         TextView p=new TextView(this);
         p.setGravity(9);
         p.setTextSize(24);
-        p.setText(""+giocatore+" - Punti:"+punteggio);
+        p.setText(""+giocatore+" - "+getString(R.string.punti)+punteggio);
         ly.addView(p);
         esci.setOnClickListener(new View.OnClickListener() {
             @Override

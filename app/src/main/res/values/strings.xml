@@ -7,8 +7,8 @@
     <string name="politica">Politica</string>
     <string name="culturagen">Cultura generale</string>
     <string name="cucina">Cucina</string>
-    <string name="falso">Falso</string>
-    <string name="vero">Vero</string>
+    <string name="Falso">Falso</string>
+    <string name="Vero">Vero</string>
     <string name="punteggio">Punteggio</string>
     <string name="domanda">Domanda</string>
     <string name="nomegiocatore">NomeGiocatore</string>
@@ -20,6 +20,10 @@
     <string name="benvenuto_in_quizsuper">Benvenuto in QuizSuper</string>
     <string name="scegli_la_materia">Scegli la materia</string>
     <string name="inserisci_il_nome_giocatore">Inserisci il nome giocatore</string>
+    <string name="punti">Punti:</string>
+    <string name="regole">REGOLE DEL GIOCO</string>
+    <string name="per_reg">Per le regole del gioco--></string>
+    <string name="desc_reg">Il gioco consinste in un quiz di 10 domande della tipologia vero-falso. Ad ogni risposta corretta verrà assegnato 1 punto. E\' possibile saltare le domande nel caso non se ne conosca la risposta"</string>
     <string-array name="Materie">
         <item>@string/ginnastica</item>
         <item>@string/scienze</item>
@@ -27,4 +31,6 @@
         <item>@string/culturagen</item>
         <item>@string/cucina</item>
     </string-array>
+    <string name="vero">Vero</string>
+    <string name="falso">Falso</string>
 </resources>

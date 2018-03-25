@@ -20,4 +20,11 @@
     <string name="politica">Policy</string>
     <string name="culturagen">General culture</string>
     <string name="cucina">Kitchen</string>
+    <string name="punti">Points:</string>
+    <string name="textview">Textview</string>
+    <string name="regole">RULES OF THE GAME</string>
+    <string name="desc_reg">The game consists of a quiz of 10 questions of the true-false typology. Each correct answer will be assigned 1 point. You can skip questions if you do not know the answer</string>
+    <string name="per_reg">For the rules of the game--></string>
+    <string name="Falso">False</string>
+    <string name="Vero">True</string>
 </resources>

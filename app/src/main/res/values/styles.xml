@@ -7,5 +7,11 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="MySerifBold">
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">@font/black_ops_one</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 
 </resources>
