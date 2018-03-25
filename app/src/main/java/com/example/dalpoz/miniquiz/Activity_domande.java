@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Activity_domande extends AppCompatActivity {
@@ -19,7 +17,7 @@ public class Activity_domande extends AppCompatActivity {
     TextView nomeGiocatore,punteggio,domanda,numdom;
     String giocatore;
     private Classe_Domande domande=new Classe_Domande();
-    private String Risposta_giusta,Domandafatta,materia;
+    private String Risposta_giusta;
     private int Punteggio=0;
     private int numero_domande=domande.Domande.length;
     private int domande_eseguite=0;
@@ -32,6 +30,7 @@ public class Activity_domande extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_domande);
         r=new Random();
+        String materia;
         avanti=findViewById(R.id.button_Avanti);
         vero=findViewById(R.id.imageButton_Vero);
         falso= findViewById(R.id.imageButton_Falso);
@@ -132,6 +131,7 @@ public class Activity_domande extends AppCompatActivity {
     }
     private void aggiornaDomanda(int num){
         boolean controlla;
+        String Domandafatta;
         Log.d("Aggiorna domanda","num="+num);
         if(domande_eseguite==0){
             Log.d("Aggiorna domanda","domande_eseguite=0");
@@ -145,7 +145,7 @@ public class Activity_domande extends AppCompatActivity {
         }else{
             Log.d("Aggiorna domanda","domande_eseguite-->"+domande_eseguite);
             controlla=controllo(num);
-            while(controlla==true){
+            while(controlla){
                 num=r.nextInt(numero_domande);
                 controlla=controllo(num);
             }
